@@ -43,4 +43,33 @@ def my_find_outlier(integers):
         return odd[0]
 
 
-#
+# create strings of 2 characters from string
+# best practice
+import re
+
+
+def solution(s):
+    return re.findall(".{2}", s + "_")
+
+
+def solution1(s):
+    result = []
+    if len(s) % 2:
+        s += '_'
+        print(s)
+    for i in range(0, len(s), 2):
+        result.append(s[i:i + 2])
+    return result
+
+
+# my solution
+def my_solution(s):
+    if len(s) % 2 != 0:
+        s = list(s)
+        s.append("_")
+        s = "".join(s)
+    l = [s[x:x + 2] for x in range(0, len(s), 2)]      #step 2 in range instead if x % 2 == 0
+    return l
+
+
+print(solution1("abcdefghijk"))
