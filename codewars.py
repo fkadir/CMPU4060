@@ -1,4 +1,4 @@
-#CODEWARS
+# CODEWARS
 
 # digital root
 # best practice
@@ -68,8 +68,29 @@ def my_solution(s):
         s = list(s)
         s.append("_")
         s = "".join(s)
-    l = [s[x:x + 2] for x in range(0, len(s), 2)]      #step 2 in range instead if x % 2 == 0
+    l = [s[x:x + 2] for x in range(0, len(s), 2)]  # step 2 in range instead if x % 2 == 0
     return l
 
 
 print(solution1("abcdefghijk"))
+
+
+# insert space in string before uppercase letter
+# Best Practice
+def insert_space(s):
+    return ''.join(' ' + c if c.isupper() else c for c in s)
+
+
+def insert_space2(s):
+    final_string = ""
+    for i in range(len(s)):
+        char = s[i]
+        if char.isupper():
+            final_string += " " + char
+        else:
+            final_string += char
+    return final_string
+
+
+print(insert_space("breakCamelCase"))
+print(insert_space2("breakCamelCase"))
