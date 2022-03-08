@@ -8,8 +8,8 @@ from webbrowser import open_new_tab
 D = {'a': 2, 'x': 7, 'r': 5}
 x = D['x']
 
+print(x)
 
-# print(x)
 
 # B
 def get_key(val, the_dict):
@@ -24,8 +24,8 @@ def get_key2(val, the_dict):
     return 'value has not been found'
 
 
-# print(get_key(7, D))
-# print(get_key2(7, D))
+print(get_key(7, D))
+print(get_key2(7, D))
 
 # Q2
 D = {'a': 15, 'c': 35, 'b': 55}
@@ -35,8 +35,7 @@ c = [(keys, val) for keys, val in D.items()]  # c = D.items()
 d = sorted(D.items())
 e = sorted(D.items(), key=lambda x: x[1])
 
-
-# print(a, b, c, d, e, sep="\n")
+print(a, b, c, d, e, sep="\n")
 
 
 # Q3
@@ -45,7 +44,7 @@ def generate_dict(z):
     return the_dict
 
 
-# print(generate_dict(5))
+print(generate_dict(5))
 
 
 # Q4
@@ -64,8 +63,8 @@ def combine_dict(d1, d2):
 d1 = {'a': 100, 'b': 200, 'c': 300}
 d2 = {'a': 300, 'b': 200, 'd': 400}
 
+print(combine_dict(d1, d2))
 
-# print(combine_dict(d1, d2))
 
 # Q5
 def int_to_words(x):
@@ -76,7 +75,8 @@ def int_to_words(x):
     return " ".join(result)
 
 
-# print(int_to_words(628098))
+print(int_to_words(628098))
+
 
 # Q6
 def capital_dict():
@@ -91,7 +91,8 @@ def capital_dict():
     print(sorted(capitals_countries.values()))
 
 
-# capital_dict()
+capital_dict()
+
 
 # Q7
 def main():
@@ -112,35 +113,29 @@ def process_line(line, wc_dict):  # process the line to get lowercase words to a
         add_word(word, wc_dict)
 
 
-def add_word(word, wc_dict):  # update word frequency
+def add_word(word, wc_dict):  # create word frequency dictionary
     if word in wc_dict:
         wc_dict[word] += 1
     else:
         wc_dict[word] = 1
 
 
-def write_to_html(d):
+def write_to_html(d):  # function that creates word cloud in html
+    # creates list of strings of span elements for every word in frequency dictionary excluding stopwords
     l = ["""<span style="font-size: """ + str(v * 10) + """px"> """ + str(k) + """ </span>""" for k, v in d.items() if
          not in_stop_words(k)]
     l = " ".join(l)
-    whole = """<!DOCTYPE html> <html>
-    <head lang="en">
-    <meta charset="UTF-8">
-    <title>Tag Cloud Generator</title>
-    </head>
-    <body>
-    <div style="text-align: center; width: 15%; vertical-align: middle; font-family: arial; color: white; background-color:black; border:1px solid black">
-    {0}
-    </div>
-    </body>>
-    </html>""".format(l)
+    # insert list of span elements into whole html file string
+    whole = """<!DOCTYPE html> <html> <head lang="en"> <meta charset="UTF-8"> <title>Tag Cloud Generator</title> 
+    </head> <body> <div style="text-align: center; width: 15%; vertical-align: middle; font-family: arial; color: 
+    white; background-color:black; border:1px solid black"> {0} </div> </body>> </html>""".format(l)
     f = open("L11-7.html", 'w')
     f.write(whole)
     f.close()
     open_new_tab("L11-7.html")
 
 
-def in_stop_words(word):
+def in_stop_words(word):  # check if input is present in stopwords.txt file and return boolean as appropriate
     with open("stopwords.txt", 'r') as f:
         contents = f.read()
         if word in contents:
