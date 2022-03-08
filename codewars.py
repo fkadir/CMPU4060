@@ -1,4 +1,6 @@
 # CODEWARS
+import string
+
 
 # digital root
 # best practice
@@ -72,9 +74,6 @@ def my_solution(s):
     return l
 
 
-print(solution1("abcdefghijk"))
-
-
 # insert space in string before uppercase letter
 # Best Practice
 def insert_space(s):
@@ -92,5 +91,19 @@ def insert_space2(s):
     return final_string
 
 
-print(insert_space("breakCamelCase"))
-print(insert_space2("breakCamelCase"))
+# pig latin something
+# Best Practice
+def pig_it(text):
+    lst = text.split()
+    return ' '.join([word[1:] + word[:1] + 'ay' if word.isalpha() else word for word in lst])
+
+
+# My Solution
+def my_pig_it(text):
+    l = text.split()
+    result = [char[1:] + char[0] + "ay" if char not in string.punctuation else char for char in l]
+    return " ".join(result)
+
+
+# Something ...
+
