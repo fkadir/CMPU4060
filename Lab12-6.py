@@ -32,7 +32,7 @@ def create_movie_dict(line, movie_dict):
 def compare_movies(movie_db):
     compare = input('Insert your movie comparison here (insert help if unclear): ')
     if input == 'help':
-        compare = input('input compaison such as: movie title (year) comparison movie title (year): ')
+        compare = input('input comparison such as: movie title (year) comparison movie title (year): ')
     while True:
         try:
             compare = compare.strip().lower()
