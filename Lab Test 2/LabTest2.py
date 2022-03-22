@@ -27,12 +27,12 @@ def main():
 # function reads the files and creates word_dict (words and corresponding document numbers)
 # and doc_dict (document numbers and corresponding text)
 def read_files():
-    f = open('ap_docs.txt', 'r')
+    f = open('ap_docs2.txt', 'r')
     text = f.read()
 
     # list of the documents where the line breaks are removed
     docs_list = text.split('<NEW DOCUMENT>')
-    docs_list = [s.strip() for s in docs_list]      #
+    docs_list = [s.strip() for s in docs_list]
     docs_list.remove('')
     f.close()
 
