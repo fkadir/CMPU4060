@@ -70,23 +70,23 @@ func1(arg1_list, arg2_list, arg_str)
 
 # Q6 A
 def remove_even(list1):
-    list1 = [x for x in list1 if x % 2 != 0]
-    return list1
+    list2 = [x for x in list1 if x % 2 != 0]
+    return list2
 
 
 # B
 def remove_odd(list2):
-    list2 = [y for y in list2 if y % 2 == 0]
-    return list2
+    list3 = [y for y in list2 if y % 2 == 0]
+    return list3
 
 
 # C
 def remove(list3, b):
     if b is True:
-        list3 = [z for z in list3 if z % 2 == 0]
+        list4 = [z for z in list3 if z % 2 == 0]
     else:
-        list3 = [z for z in list3 if z % 2 != 0]
-    return list3
+        list4 = [z for z in list3 if z % 2 != 0]
+    return list4
 
 
 x_list = [n for n in range(0, 20)]
