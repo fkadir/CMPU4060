@@ -1,6 +1,7 @@
 # Week 10 Lab 15
 import math
 
+
 # Q1
 class TestClass(object):
 
@@ -123,6 +124,8 @@ class LinearEquation(object):
 e1 = LinearEquation(2, 5)
 e2 = LinearEquation(3, 7)
 s1 = e1 + e2
+
+
 # print(e1.value(1))
 # print(e2)
 # print(repr(e2))
@@ -140,13 +143,13 @@ class Vector(object):
 
     def __add__(self, v):
         if type(v) == Vector:
-            return Vector(self.x+v.x, self.y+v.y)
+            return Vector(self.x + v.x, self.y + v.y)
         else:
             return 'Invalid Input'
 
     def __mul__(self, v):
         if type(v) == int:
-            return Vector(self.x*v, self.y*v)
+            return Vector(self.x * v, self.y * v)
         elif type(v) == Vector:
             return self.x * v.x + self.y * v.y
         else:
@@ -154,7 +157,7 @@ class Vector(object):
 
     def __sub__(self, v):
         if type(v) == Vector:
-            return Vector(self.x-v.x, self.y-v.y)
+            return Vector(self.x - v.x, self.y - v.y)
         else:
             return 'Invalid Input'
 
