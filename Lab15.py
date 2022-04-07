@@ -66,7 +66,8 @@ class BankAccount(object):
         self.last_transactions = last_transactions
 
     def __str__(self):
-        return 'Account {} with {} belongs to {}'.format(self.account_number, self.iban, self.name)
+        result = 'Account {} with {} belongs to {} '.format(self.account_number, self.iban, self.name)
+        return result
 
     def withdraw(self, withdraw_amount):
         self.funds -= withdraw_amount
@@ -90,7 +91,13 @@ class MinimumBalanceAccount(BankAccount):
         else:
             return 'not enough funds'
 
+    def __str__(self):
+        result = BankAccount.__str__(self)
+        result += 'with minimum balance of ' + str(self.min_balance)
+        return result
+
 
 b2 = MinimumBalanceAccount('F Kadir', 'NL12INGB1234123456', '123456', 10)
 # b2.deposit(100)
 # print(b2.withdraw(50))
+# print(b2)
